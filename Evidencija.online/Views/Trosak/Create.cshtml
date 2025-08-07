@@ -1,0 +1,50 @@
+﻿@model Evidencija.online.Models.Trosak
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="mx-auto text-center">
+    <h1>Kreiraj trošak</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Opis" class="control-label"></label>
+                <input asp-for="Opis" class="form-control" />
+                <span asp-validation-for="Opis" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <label asp-for="KategorijaId" class="control-label">Kategorija</label>
+                <select asp-for="KategorijaId" class ="form-control" asp-items="ViewBag.KategorijaId"></select>
+                </div><br />
+            <div class="form-group">
+                <label asp-for="Datum" class="control-label"></label>
+                <input asp-for="Datum" class="form-control" />
+                <span asp-validation-for="Datum" class="text-danger"></span>
+                </div><br />
+            <div class="form-group">
+                <label asp-for="Iznos" class="control-label"></label>
+                <input asp-for="Iznos" class="form-control" />
+                <span asp-validation-for="Iznos" class="text-danger"></span>
+                </div><br />
+            <div class="form-group">
+                <label asp-for="Valuta" class="control-label"></label>
+                <input asp-for="Valuta" class="form-control" />
+                <span asp-validation-for="Valuta" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Kreiraj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

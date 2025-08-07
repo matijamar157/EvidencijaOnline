@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Evidencija.online.Models.Korisnik>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="mx-auto text-center">
+    <h1>Sve kategorije</h1>
+    <button class="btn btn-primary">
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+    </button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prezime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prezime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Ime">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Ime">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Ime">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

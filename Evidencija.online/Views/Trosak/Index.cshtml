@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Evidencija.online.Models.Trosak>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="mx-auto text-center">
+
+    <h1>Pogledaj sve troškove</h1>
+    <button class="btn btn-primary">
+        <p>
+            <a asp-action="Create" style="color: white;">Kreiraj novi trošak</a>
+        </p>
+    </button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Opis)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kategorija)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Datum)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Iznos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Valuta)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Opis)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kategorija.Naziv)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Datum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Iznos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Valuta)
+                    </td>
+                    <td>
+                        <button class="btn btn-success">
+                            <a asp-action="Details" asp-route-id="@item.Id" style="color: white;">Detalji</a>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
